@@ -1,0 +1,6 @@
+en:
+  js:
+    whats_going_on:
+      box_title: "What's Going On?"
+      current_users_online: "There are currently %{total} users online."
+      most_users_ever_online: "Most users ever online was %{total}, %{time}"

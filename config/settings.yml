@@ -1,0 +1,4 @@
+plugins:
+  whats_going_on_enabled:
+    default: true
+    client: true
