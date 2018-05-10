@@ -1,10 +1,6 @@
 import { registerHelper } from 'discourse-common/lib/helpers';
 
-export default registerHelper("wgo-user-sep", function(params) {
-  return params[0] < params[1] ? "," : "";
-});
-
-registerHelper("wgo-sum", function(params) {
+export default registerHelper("wgo-sum", function(params) {
   return params[0] + params[1];
 });
 
