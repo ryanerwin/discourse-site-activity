@@ -2,7 +2,7 @@ module WhatsGoingOn
   class UsersOnlineController < ApplicationController
 
     def index
-      users         = User.where("last_seen_at > ?", 7.days.ago).select(:username).order(:last_seen_at).map(&:username)
+      users         = User.where("last_seen_at > ?", 7.days.ago).select(:username).order(last_seen_at: :desc).map(&:username)
       guest_count   = PluginStore.get("whats_going_on", "guest_count").to_i
 
       current       = { member: users.size, guest: guest_count }
