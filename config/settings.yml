@@ -1,4 +1,4 @@
 plugins:
-  whats_going_on_enabled:
+  site_activity_enabled:
     default: true
     client: true

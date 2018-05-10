@@ -1,0 +1,40 @@
+.wgo-box {
+  border: 3px solid $primary_low;
+}
+
+.wgo-main {
+  border-top: 3px solid $primary_low;
+}
+
+.wgo-title, .wgo-main {
+  padding: 20px;
+}
+
+.wgo-users {
+  margin-top: 10px;
+}
+
+.wgo-current-online {
+  color: $primary_medium;
+  margin: 0;
+}
+
+.wgo-most-online {
+  color: $primary_high;
+}
+
+.wgo-users {
+  color: $primary_medium;
+}
+
+.wgo-user {
+  color: $primary_medium;
+
+  &:hover, &:visited, &:focus {
+    color: $primary_high;
+  }
+
+  &:hover {
+    font-weight: bolder;
+  }
+}

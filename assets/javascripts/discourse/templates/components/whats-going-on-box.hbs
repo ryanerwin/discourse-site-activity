@@ -1,0 +1,22 @@
+<div class="wgo-box">
+
+  <div class="wgo-title">
+    <h2>{{i18n "whats_going_on.box_title"}}</h2>
+    <h4 class="wgo-current-online">
+      {{i18n "whats_going_on.current_users_online"
+        total=(wgo-sum model.current.member model.current.guest)
+        member=model.current.member
+        guest=model.current.guest
+      }}
+    </h4>
+  </div>
+
+  <div class="wgo-main">
+    <div class="wgo-most-online">{{i18n "whats_going_on.most_users_ever_online" total=model.most.total}}, {{format-date model.most.time leaveAgo="true"}}</div>
+
+    <div class="wgo-users">
+      {{{wgo-users model.users}}}
+    </div>
+  </div>
+
+</div>
