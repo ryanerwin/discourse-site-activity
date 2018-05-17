@@ -26,7 +26,7 @@ export default Ember.Component.extend({
     }, {}, 10 * 60 * 1000); // 10 minutes
 
     this.set('timer', handle);
-    console.log("_refresh");
+    //console.log("_refresh");
   },
 
   @on("willDestroyElement")
