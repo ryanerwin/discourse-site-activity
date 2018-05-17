@@ -7,8 +7,9 @@ export default registerHelper("wgo-sum", function(params) {
 registerHelper("wgo-users", function(params) {
   if (!params[0]) return;
 
-  return params[0].map((username) => {
-    username = Handlebars.Utils.escapeExpression(username);
-    return `<a href="/u/${username}" class="wgo-user">${username}</a>`;
+  return params[0].map((user) => {
+    const name      = Handlebars.Utils.escapeExpression(user.name || user.username);
+    const username  = Handlebars.Utils.escapeExpression(user.username);
+    return `<a href="/u/${username}" class="wgo-user">${name}</a>`;
   }).join(", ");
 });
