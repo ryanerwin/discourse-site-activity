@@ -1,4 +1,4 @@
-import { on } from 'ember-addons/ember-computed-decorators';
+import { default as computed, on } from 'ember-addons/ember-computed-decorators';
 import { ajax } from 'discourse/lib/ajax';
 
 export default Ember.Component.extend({
@@ -26,7 +26,6 @@ export default Ember.Component.extend({
     }, {}, 10 * 60 * 1000); // 10 minutes
 
     this.set('timer', handle);
-    //console.log("_refresh");
   },
 
   @on("willDestroyElement")
@@ -34,6 +33,11 @@ export default Ember.Component.extend({
     if (this.get('timer')) {
       Ember.run.cancel(this.get('timer'));
     }
+  },
+
+  @computed("model.group.name", "model.group.full_name")
+  groupName(name, full_name) {
+    return full_name || name;
   }
 
 });

@@ -12,15 +12,12 @@
 
 .wgo-users {
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 
-.wgo-current-online {
-  color: $primary_medium;
-  margin: 0;
-}
-
-.wgo-most-online {
+.wgo-current-online, .wgo-most-online {
   color: $primary_high;
+  margin: 0;
 }
 
 .wgo-users {
@@ -36,5 +33,18 @@
 
   &:hover {
     font-weight: bolder;
+  }
+}
+
+.wgo-view-all {
+  font-weight: bold;
+  color: $primary_high;
+
+  a {
+    color: $primary_high;
+
+    &:hover, &:visited, &:focus {
+      color: $primary;
+    }
   }
 }

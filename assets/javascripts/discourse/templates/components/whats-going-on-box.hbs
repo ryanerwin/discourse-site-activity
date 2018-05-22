@@ -9,14 +9,37 @@
         guest=model.current.guest
       }}
     </h4>
+    <h4 class="wgo-most-online">{{i18n "whats_going_on.most_users_ever_online" total=model.most.total}}, {{format-date model.most.time leaveAgo="true"}}</h4>
   </div>
 
-  <div class="wgo-main">
-    <div class="wgo-most-online">{{i18n "whats_going_on.most_users_ever_online" total=model.most.total}}, {{format-date model.most.time leaveAgo="true"}}</div>
+  {{#if model.group}}
+    <div class="wgo-main">
+      <h3>{{i18n "whats_going_on.group_active_title" group=groupName}}</h3>
 
-    <div class="wgo-users">
-      {{{wgo-users model.users}}}
+      <div class="wgo-users">
+        {{{wgo-users model.group.users}}}
+      </div>
+
+      <div class="wgo-view-all">
+        {{link-to (i18n "whats_going_on.group_active_link" group=groupName) "group.members" model.group.name}}
+        {{i18n "whats_going_on.current_active_of_total" current=model.group.current total=model.group.total}}
+      </div>
     </div>
-  </div>
+  {{/if}}
+
+  {{#if model.member}}
+    <div class="wgo-main">
+      <h3>{{i18n "whats_going_on.member_active_title"}}</h3>
+
+      <div class="wgo-users">
+        {{{wgo-users model.member.users}}}
+      </div>
+
+      <div class="wgo-view-all">
+        {{link-to (i18n "whats_going_on.member_active_link") "users"}}
+        {{i18n "whats_going_on.current_active_of_total" current=model.member.current total=model.member.total}}
+      </div>
+    </div>
+  {{/if}}
 
 </div>

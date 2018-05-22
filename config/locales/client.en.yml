@@ -4,3 +4,8 @@ en:
       box_title: "What's Going On?"
       current_users_online: "There are currently {{total}} users online. ({{member}} members and {{guest}} guests)"
       most_users_ever_online: "Most users ever online was {{total}}"
+      group_active_title: "{{group}} Active"
+      group_active_link: "View Full {{group}}"
+      member_active_title: "Members Active"
+      member_active_link: "View Member List"
+      current_active_of_total: "({{current}} of {{total}} members active)"

@@ -2,3 +2,8 @@ plugins:
   site_activity_enabled:
     default: true
     client: true
+  site_activity_group:
+    default: "admins"
+  site_activity_online_minute:
+    default: 10080
+    min: 1
