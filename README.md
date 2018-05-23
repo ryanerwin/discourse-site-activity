@@ -10,7 +10,7 @@ New features:
 - Added: `site_activity_group_online_minute` setting
 - Added: `site_activity_member_online_minute` setting
 - Added: `site_activity_guest_online_day` setting
-- Added user option to hide `What's Going On?` box
+- Add user option to hide `What's Going On?` box
 - Removed: `site_activity_online_minute` setting
 
 #### 0.2
