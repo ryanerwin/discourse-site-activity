@@ -1,7 +1,11 @@
 {{#if siteSettings.site_activity_enabled}}
 
-  <div class="{{unless showFooter 'hidden'}}">
-    {{whats-going-on-box}}
-  </div>
+  {{#unless currentUser.hide_site_activity}}
+
+    <div class="{{unless showFooter 'hidden'}}">
+      {{whats-going-on-box}}
+    </div>
+
+  {{/unless}}
 
 {{/if}}

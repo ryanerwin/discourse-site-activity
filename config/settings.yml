@@ -4,6 +4,12 @@ plugins:
     client: true
   site_activity_group:
     default: "admins"
-  site_activity_online_minute:
+  site_activity_member_online_minute:
     default: 10080
+    min: 1
+  site_activity_group_online_minute:
+    default: 10080
+    min: 1
+  site_activity_guest_online_day:
+    default: 7
     min: 1

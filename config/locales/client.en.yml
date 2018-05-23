@@ -9,3 +9,4 @@ en:
       member_active_title: "Members Active"
       member_active_link: "View Member List"
       current_active_of_total: "({{current}} of {{total}} members active)"
+      hide_site_activity: "Hide \"What's Going On?\" box"

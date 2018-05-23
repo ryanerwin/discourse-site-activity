@@ -2,4 +2,6 @@ en:
   site_settings:
     site_activity_enabled: "Enable site activity plugin?"
     site_activity_group: "Special group"
-    site_activity_online_minute: "User is online if last_seen_at < x minute(s) ago"
+    site_activity_member_online_minute: "Member is online if last_seen_at < x minute(s) ago"
+    site_activity_group_online_minute: "Member of special group is online if last_seen_at < x minute(s) ago"
+    site_activity_guest_online_day: "Guest is online if last_seen_at < x day(s) ago"

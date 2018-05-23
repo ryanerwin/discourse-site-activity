@@ -5,6 +5,14 @@ Discourse Forum, Site Activity Plugin, Efficiency publicize recent visitor stats
 
 ### Changelog
 
+#### 0.3
+New features:
+- Added: `site_activity_group_online_minute` setting
+- Added: `site_activity_member_online_minute` setting
+- Added: `site_activity_guest_online_day` setting
+- Added user option to hide `What's Going On?` box
+- Removed: `site_activity_online_minute` setting
+
 #### 0.2
 New features:
 - `site_activity_group` setting: Allow special group to be displayed separately from members

@@ -2,16 +2,19 @@ module WhatsGoingOn
   class UsersOnlineController < ApplicationController
 
     def index
-      special_group   = Group.where(name: SiteSetting.site_activity_group).first
-      online_minute   = SiteSetting.site_activity_online_minute.to_i.minutes.ago
+      special_group         = Group.where(name: SiteSetting.site_activity_group).first if !SiteSetting.site_activity_group.blank?
+      group_online_minute   = SiteSetting.site_activity_group_online_minute.to_i.minutes.ago
+      member_online_minute  = SiteSetting.site_activity_member_online_minute.to_i.minutes.ago
 
-      group = nil
+      group             = nil
+      group_member_ids  = []
 
       if !special_group.blank?
+        group_member_ids = GroupUser.where(group_id: special_group.id).pluck(:user_id)
+
         users = User
-          .joins(:groups)
-          .where("groups.id = ?", special_group.id)
-          .where("last_seen_at > ?", online_minute)
+          .where("last_seen_at > ?", group_online_minute)
+          .where(id: group_member_ids)
           .select(:id, :username, :name)
           .order(last_seen_at: :desc)
 
@@ -25,8 +28,8 @@ module WhatsGoingOn
       end
         
       users = User
-        .where("last_seen_at > ?", online_minute)
-        .where.not(id: (group ? group[:users].map(&:id) : []))
+        .where("last_seen_at > ?", member_online_minute)
+        .where.not(id: group_member_ids)
         .select(:id, :username, :name)
         .order(last_seen_at: :desc)
 
@@ -45,6 +48,14 @@ module WhatsGoingOn
     end
 
     private
+
+      def get_users(last_seen_at, ids)
+        User
+          .where("last_seen_at > ?", last_seen_at)
+          .where(id: except_ids)
+          .select(:id, :username, :name)
+          .order(last_seen_at: :desc)        
+      end
 
       def get_most_online(current_total)
         tmp_most_online = { total: current_total, time: Time.now }
