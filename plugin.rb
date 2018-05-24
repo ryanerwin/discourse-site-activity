@@ -1,5 +1,5 @@
 # name: site-activity
-# version: 0.3
+# version: 0.4
 # author: Muhlis Budi Cahyono (muhlisbc@gmail.com)
 # url: https://github.com/ryanerwin/discourse-site-activity
 

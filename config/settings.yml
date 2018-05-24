@@ -4,11 +4,27 @@ plugins:
     client: true
   site_activity_group:
     default: "admins"
+  site_activity_update_interval_minute:
+    default: 10
+    min: 1
+    client: true
   site_activity_member_online_minute:
     default: 10080
     min: 1
+  site_activity_member_limit_desktop:
+    default: 100000
+    min: 1
+  site_activity_member_limit_mobile:
+    default: 10
+    min: 1
   site_activity_group_online_minute:
     default: 10080
+    min: 1
+  site_activity_group_limit_desktop:
+    default: 100000
+    min: 1
+  site_activity_group_limit_mobile:
+    default: 10
     min: 1
   site_activity_guest_online_day:
     default: 7

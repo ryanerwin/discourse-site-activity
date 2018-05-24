@@ -7,9 +7,17 @@ export default registerHelper("wgo-sum", function(params) {
 registerUnbound("wgo-users", function(users) {
   if (!users) return;
 
+  const currentUser = Discourse.User.current();
+
   return users.map((user) => {
-    const name      = Handlebars.Utils.escapeExpression(user.name || user.username);
-    const username  = Handlebars.Utils.escapeExpression(user.username);
-    return `<a href="/u/${username}" class="wgo-user">${name}</a>`;
+    const name      = _escape(user.name || user.username);
+    const username  = _escape(user.username);
+    const addClass  = currentUser && currentUser.id === user.id ? "wgo-user-self" : "";
+
+    return `<a href="/u/${username}" class="wgo-user ${addClass}">${name}</a>`;
   }).join(", ");
 });
+
+function _escape(arg) {
+  return Handlebars.Utils.escapeExpression(arg);
+}

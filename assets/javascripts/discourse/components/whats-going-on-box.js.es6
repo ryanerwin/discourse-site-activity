@@ -12,7 +12,7 @@ export default Ember.Component.extend({
   },
 
   _fetch() {
-    ajax("/whats-going-on/").then((result) => {
+    ajax("/whats-going-on/", { data: { mobile: this.get("site.mobileView") } }).then((result) => {
       this.set("model", result);
     }).catch((e) => {
       console.error(e);
@@ -20,10 +20,12 @@ export default Ember.Component.extend({
   },
 
   _refresh() {
+    const updateInterval = this.get("siteSettings.site_activity_update_interval_minute");
+
     const handle = Ember.run.later((this), () => {
       this._fetch();
       this._refresh();
-    }, {}, 10 * 60 * 1000); // 10 minutes
+    }, {}, updateInterval * 60 * 1000);
 
     this.set('timer', handle);
   },

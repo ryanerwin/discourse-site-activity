@@ -5,6 +5,14 @@ Discourse Forum, Site Activity Plugin, Efficiency publicize recent visitor stats
 
 ### Changelog
 
+#### 0.4
+New features:
+- Added: `site_activity_update_interval_minute` setting
+- Added: `site_activity_member_limit_desktop` setting
+- Added: `site_activity_member_limit_mobile` setting
+- Added: `site_activity_group_limit_desktop` setting
+- Added: `site_activity_group_limit_mobile` setting
+
 #### 0.3
 New features:
 - Added: `site_activity_group_online_minute` setting

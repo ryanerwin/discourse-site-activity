@@ -7,8 +7,16 @@ module Jobs
     def execute(_args)
       return unless SiteSetting.site_activity_enabled
 
-      guest_count = TopicViewItem.where(user_id: nil).where("viewed_at > ?", SiteSetting.site_activity_guest_online_day.to_i.days.ago.to_date).count("DISTINCT ip_address")
+      online_date = SiteSetting.site_activity_guest_online_day.to_i.days.ago.to_date
+
+      guest_count = TopicViewItem
+        .where(user_id: nil)
+        .where("viewed_at > ?", online_date)
+        .count("DISTINCT ip_address")
+
       PluginStore.set("whats_going_on", "guest_count", guest_count)
+
+      puts "CountGuests done!" if Rails.env.development?
     end
     
   end
