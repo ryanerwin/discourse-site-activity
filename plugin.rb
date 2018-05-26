@@ -13,11 +13,7 @@ after_initialize {
 
   load File.expand_path("../jobs/count_guests.rb", __FILE__)
 
-  add_to_serializer(:user, :custom_fields) {
-    if scope.is_staff? || (scope.authenticated? && object.id == scope.user.id)
-      object.custom_fields || {}
-    end
-  }
+  DiscoursePluginRegistry.serialized_current_user_fields << "hide_site_activity"
 
   User.register_custom_field_type("hide_site_activity", :boolean)
 
