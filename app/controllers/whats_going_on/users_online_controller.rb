@@ -63,6 +63,7 @@ module WhatsGoingOn
         limit           = setting_for("member_limit", mobile_or_desktop).to_i
 
         users = User
+          .real
           .where("last_seen_at > ?", online_minute)
           .where.not(id: @group_member_ids)
           .select(:id, :username, :name)
@@ -70,6 +71,7 @@ module WhatsGoingOn
           .limit(limit)
 
         users_count = User
+          .real
           .where("last_seen_at > ?", online_minute)
           .where.not(id: @group_member_ids)
           .count
@@ -77,7 +79,7 @@ module WhatsGoingOn
         @member = {
           users: users,
           current: users_count,
-          total: User.count,
+          total: User.real.count,
           limit: limit
         }
       end
